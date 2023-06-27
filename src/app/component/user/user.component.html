@@ -1,17 +1,17 @@
-<div class="container">
+<div class="container pt-5"> 
   <div class="row mt-5">
 <div class="col-6">
-    <mat-form-field>
+    <mat-form-field appearance="outline">
       <input matInput (keyup)="applyFilter($event)" placeholder="Search by Email Address" #input>
       <mat-icon matPrefix>search</mat-icon>
     </mat-form-field>
   </div>
-  <div class="col-6 " >
-    <button mat-button (click)="createNewUser()" style="float:right;">Create</button>
+  <div class="col-6">
+    <button mat-raised-button (click)="createNewUser()" class="createBtn">Create</button>
   </div>
   </div>
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table table-bordered mt-4">
     <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
       <th mat-header-cell *matHeaderCellDef> {{column}} </th>
       <td mat-cell *matCellDef="let element;let i=index"> {{element[column]}}
@@ -19,7 +19,7 @@
           <button mat-button color="warn" (click)="deleteRow(i)">Delete</button>
         </div> 
         <div *ngIf="column==='View Info'">    
-        <a href="">Details</a> 
+        <a href="#">Details</a> 
         </div>
       </td>
     </ng-container>
